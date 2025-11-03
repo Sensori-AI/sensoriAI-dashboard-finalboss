@@ -2,9 +2,17 @@ import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { MetricCard } from "@/components/dashboard/MetricCard";
 import { MapVisualization } from "@/components/dashboard/MapVisualization";
 import { RecommendationsPanel } from "@/components/dashboard/RecommendationsPanel";
+import { FarmInfoHeader } from "@/components/dashboard/FarmInfoHeader";
 import { Sprout, AlertTriangle, Activity, MapPin } from "lucide-react";
 
 const Index = () => {
+  // Dados mock
+  const farmInfo = {
+    consultant: "Dr. Carlos Silva",
+    crop: "Soja",
+    season: "2024/2025",
+  };
+
   return (
     <DashboardLayout>
       <div className="p-6 space-y-6">
@@ -15,6 +23,9 @@ const Index = () => {
             Visão geral das análises da lavoura
           </p>
         </div>
+
+        {/* Farm Info */}
+        <FarmInfoHeader info={farmInfo} />
 
         {/* Metrics Grid */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
