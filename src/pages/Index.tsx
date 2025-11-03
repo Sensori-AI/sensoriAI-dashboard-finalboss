@@ -1,13 +1,62 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { DashboardLayout } from "@/components/layout/DashboardLayout";
+import { MetricCard } from "@/components/dashboard/MetricCard";
+import { MapVisualization } from "@/components/dashboard/MapVisualization";
+import { RecommendationsPanel } from "@/components/dashboard/RecommendationsPanel";
+import { Sprout, AlertTriangle, Activity, MapPin } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <DashboardLayout>
+      <div className="p-6 space-y-6">
+        {/* Header */}
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold text-foreground">Dashboard de Análise</h1>
+          <p className="text-muted-foreground">
+            Visão geral das análises da lavoura
+          </p>
+        </div>
+
+        {/* Metrics Grid */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <MetricCard
+            title="Área Total Mapeada"
+            value="245.3 ha"
+            subtitle="100% da propriedade"
+            icon={MapPin}
+            variant="success"
+          />
+          <MetricCard
+            title="Plantas Daninhas"
+            value="15.8%"
+            subtitle="38.7 ha infestados"
+            icon={Sprout}
+            variant="warning"
+            trend={{ value: "2.3% vs. mês anterior", isPositive: false }}
+          />
+          <MetricCard
+            title="Falhas de Plantio"
+            value="8.3%"
+            subtitle="20.4 ha com falhas"
+            icon={AlertTriangle}
+            variant="danger"
+          />
+          <MetricCard
+            title="Vigor Médio"
+            value="72%"
+            subtitle="Alto: 45% | Médio: 31% | Baixo: 24%"
+            icon={Activity}
+            variant="success"
+            trend={{ value: "5% vs. semana anterior", isPositive: true }}
+          />
+        </div>
+
+        {/* Map Visualization */}
+        <MapVisualization />
+
+        {/* Recommendations */}
+        <RecommendationsPanel />
       </div>
-    </div>
+    </DashboardLayout>
   );
 };
 
