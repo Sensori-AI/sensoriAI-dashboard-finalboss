@@ -1,10 +1,19 @@
-import { Download } from "lucide-react";
+import { Download, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import { useTheme } from "@/components/theme-provider";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export const DashboardHeader = () => {
+  const { setTheme, theme } = useTheme();
+  
   const handleDownloadPDF = async () => {
     try {
       toast.loading("Gerando PDF...");
@@ -48,10 +57,33 @@ export const DashboardHeader = () => {
           <p className="text-sm text-muted-foreground">Análise completa da lavoura</p>
         </div>
         
-        <Button onClick={handleDownloadPDF} className="gap-2">
-          <Download className="h-4 w-4" />
-          Download PDF
-        </Button>
+        <div className="flex items-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Alternar tema</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                Claro
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                Escuro
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>
+                Sistema
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
+          <Button onClick={handleDownloadPDF} className="gap-2">
+            <Download className="h-4 w-4" />
+            Download PDF
+          </Button>
+        </div>
       </div>
     </header>
   );

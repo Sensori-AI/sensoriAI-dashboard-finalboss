@@ -8,6 +8,7 @@ import Maps from "./pages/Maps";
 import Weeds from "./pages/Weeds";
 import Vigor from "./pages/Vigor";
 import Reports from "./pages/Reports";
+import ReportsHistory from "./pages/ReportsHistory";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/weeds" element={<Weeds />} />
           <Route path="/vigor" element={<Vigor />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/reports-history" element={<ReportsHistory />} />
           <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

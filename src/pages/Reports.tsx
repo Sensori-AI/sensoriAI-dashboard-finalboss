@@ -1,15 +1,39 @@
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Calendar, User, Leaf } from "lucide-react";
+import { Download, Calendar, User, Leaf, Filter, Clock, History } from "lucide-react";
 import { StatisticsChart } from "@/components/dashboard/StatisticsChart";
 import { MetricCard } from "@/components/dashboard/MetricCard";
 import { toast } from "sonner";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { Sprout, AlertTriangle, Activity, MapPin } from "lucide-react";
+import { useState } from "react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useNavigate } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 const Reports = () => {
+  const navigate = useNavigate();
+  const [selectedSector, setSelectedSector] = useState<string>("all");
+  const [selectedPeriod, setSelectedPeriod] = useState<string>("week");
+  const [emailSchedule, setEmailSchedule] = useState({
+    enabled: false,
+    frequency: "weekly",
+    email: "",
+  });
+
   const handleDownloadPDF = async () => {
     try {
       toast.loading("Gerando relatório em PDF...");
@@ -80,10 +104,16 @@ const Reports = () => {
     { name: "Baixo", value: 58.9, percentage: 24 },
   ];
 
+  const handleScheduleEmail = () => {
+    toast.info("Agendamento de relatórios por email requer Lovable Cloud", {
+      description: "Vamos configurar o backend para enviar emails automaticamente",
+    });
+  };
+
   return (
     <DashboardLayout>
       <div className="p-4 sm:p-6">
-        {/* Header com botão de download */}
+        {/* Header com botões */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
@@ -93,11 +123,143 @@ const Reports = () => {
               Resumo completo das análises realizadas
             </p>
           </div>
-          <Button onClick={handleDownloadPDF} className="gap-2 w-full sm:w-auto">
-            <Download className="h-4 w-4" />
-            Baixar PDF
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+            <Button
+              onClick={() => navigate("/reports-history")}
+              variant="outline"
+              className="gap-2"
+            >
+              <History className="h-4 w-4" />
+              Histórico
+            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="gap-2">
+                  <Clock className="h-4 w-4" />
+                  Agendar Email
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Agendar Relatórios Automáticos</DialogTitle>
+                  <DialogDescription>
+                    Configure o envio automático de relatórios por email
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 py-4">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="enable-schedule"
+                      checked={emailSchedule.enabled}
+                      onCheckedChange={(checked) =>
+                        setEmailSchedule({ ...emailSchedule, enabled: checked as boolean })
+                      }
+                    />
+                    <Label htmlFor="enable-schedule">
+                      Ativar envio automático de relatórios
+                    </Label>
+                  </div>
+
+                  {emailSchedule.enabled && (
+                    <>
+                      <div className="space-y-2">
+                        <Label htmlFor="frequency">Frequência</Label>
+                        <Select
+                          value={emailSchedule.frequency}
+                          onValueChange={(value) =>
+                            setEmailSchedule({ ...emailSchedule, frequency: value })
+                          }
+                        >
+                          <SelectTrigger id="frequency">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="weekly">Semanal</SelectItem>
+                            <SelectItem value="biweekly">Quinzenal</SelectItem>
+                            <SelectItem value="monthly">Mensal</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="seuemail@exemplo.com"
+                          value={emailSchedule.email}
+                          onChange={(e) =>
+                            setEmailSchedule({ ...emailSchedule, email: e.target.value })
+                          }
+                        />
+                      </div>
+                    </>
+                  )}
+                </div>
+                <DialogFooter>
+                  <Button onClick={handleScheduleEmail}>Salvar Agendamento</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+            <Button onClick={handleDownloadPDF} className="gap-2">
+              <Download className="h-4 w-4" />
+              Baixar PDF
+            </Button>
+          </div>
         </div>
+
+        {/* Filtros */}
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Filter className="h-5 w-5" />
+              Filtros Personalizados
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="space-y-2">
+                <Label htmlFor="sector">Setor</Label>
+                <Select value={selectedSector} onValueChange={setSelectedSector}>
+                  <SelectTrigger id="sector">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Todos os Setores</SelectItem>
+                    <SelectItem value="s-001">Setor S-001</SelectItem>
+                    <SelectItem value="s-002">Setor S-002</SelectItem>
+                    <SelectItem value="s-003">Setor S-003</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="period">Período</Label>
+                <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
+                  <SelectTrigger id="period">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="week">Última Semana</SelectItem>
+                    <SelectItem value="month">Último Mês</SelectItem>
+                    <SelectItem value="quarter">Último Trimestre</SelectItem>
+                    <SelectItem value="year">Último Ano</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="start-date">Data Inicial</Label>
+                <Input id="start-date" type="date" />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="end-date">Data Final</Label>
+                <Input id="end-date" type="date" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Conteúdo do relatório */}
         <div id="report-content" className="space-y-6 bg-background p-4 sm:p-6 rounded-lg">
