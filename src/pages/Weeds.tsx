@@ -1,14 +1,13 @@
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SectorList } from "@/components/dashboard/SectorList";
-import { GeographicMap } from "@/components/dashboard/GeographicMap";
+import { SectorList, type Sector } from "@/components/dashboard/SectorList";
+import { GeographicMap, type Polygon } from "@/components/dashboard/GeographicMap";
 import { StatisticsChart } from "@/components/dashboard/StatisticsChart";
 import { Badge } from "@/components/ui/badge";
 import { AlertCircle } from "lucide-react";
 import { useState } from "react";
-import { Sector } from "@/components/dashboard/SectorList";
 
-const mockWeedPolygons = [
+const mockWeedPolygons: Polygon[] = [
   {
     id: "S-001",
     coordinates: [
@@ -40,9 +39,9 @@ const mockWeedSectors: Sector[] = [
 ];
 
 const weedsChartData = [
-  { name: "Alta", value: 45.3, fill: "hsl(var(--chart-1))" },
-  { name: "Média", value: 32.1, fill: "hsl(var(--chart-2))" },
-  { name: "Baixa", value: 22.6, fill: "hsl(var(--chart-3))" },
+  { name: "Alta", value: 45.3, percentage: 45.3 },
+  { name: "Média", value: 32.1, percentage: 32.1 },
+  { name: "Baixa", value: 22.6, percentage: 22.6 },
 ];
 
 const Weeds = () => {
@@ -91,14 +90,7 @@ const Weeds = () => {
           </Card>
         </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Distribuição de Infestação</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <StatisticsChart data={weedsChartData} title="Níveis de Infestação (%)" />
-          </CardContent>
-        </Card>
+        <StatisticsChart data={weedsChartData} title="Níveis de Infestação" />
 
         <Card>
           <CardHeader>

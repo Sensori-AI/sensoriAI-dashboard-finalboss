@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { SectorList, Sector } from "./SectorList";
-import { GeographicMap } from "./GeographicMap";
+import { SectorList, type Sector } from "./SectorList";
+import { GeographicMap, type Polygon } from "./GeographicMap";
 import { toast } from "sonner";
 
 // Coordenadas centrais da propriedade (mock - região de soja no Brasil)
 const farmCenter = { lat: -23.5505, lng: -46.6333 };
 
 // Mock data - polígonos geográficos para plantas daninhas
-const mockWeedPolygons = [
+const mockWeedPolygons: Polygon[] = [
   {
     id: "S-001",
     coordinates: [
@@ -46,7 +46,7 @@ const mockWeedPolygons = [
 ];
 
 // Mock data - polígonos geográficos para falhas de plantio
-const mockFailurePolygons = [
+const mockFailurePolygons: Polygon[] = [
   {
     id: "S-002",
     coordinates: [
