@@ -232,7 +232,7 @@ const Index = () => {
 
       {/* Use Case Section - Agricultural Platform */}
       <section id="cases" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <Badge variant="secondary" className="mb-4 text-sm px-4 py-1.5">
               <Sparkles className="w-4 h-4 mr-2 inline" />
@@ -241,154 +241,128 @@ const Index = () => {
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               Transforme sua operação agrícola com Inteligência Artificial
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
               Aproveite todo o potencial dos seus dados com uma plataforma inteligente que entrega análises claras, insights automáticos e decisões mais rápidas — tudo em um só lugar.
+            </p>
+            <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Nossa solução combina imagens de satélite, processamento avançado e modelos proprietários de IA para monitorar áreas agrícolas, identificar problemas e gerar relatórios completos que aceleram sua tomada de decisão.
             </p>
           </div>
 
-          {/* Main Content Grid - Image Left, Content Right */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Left Side - Platform Mockup */}
-            <div className="relative animate-fade-in">
-              <div className="aspect-video rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 p-8 border-2 border-primary/20 shadow-2xl">
-                <div className="w-full h-full bg-background/50 rounded-lg backdrop-blur-sm flex items-center justify-center">
-                  <div className="text-center space-y-4 p-8">
-                    <div className="flex justify-center gap-4 mb-6">
-                      <div className="h-16 w-16 rounded-lg bg-primary/20 flex items-center justify-center">
-                        <Satellite className="h-8 w-8 text-primary" />
-                      </div>
-                      <div className="h-16 w-16 rounded-lg bg-secondary/20 flex items-center justify-center">
-                        <Brain className="h-8 w-8 text-secondary" />
-                      </div>
-                      <div className="h-16 w-16 rounded-lg bg-accent/20 flex items-center justify-center">
-                        <BarChart3 className="h-8 w-8 text-accent" />
-                      </div>
-                    </div>
-                    <h4 className="text-lg font-semibold">Plataforma SensoriAI Agro</h4>
-                    <p className="text-sm text-muted-foreground">Interface intuitiva com IA integrada</p>
-                  </div>
+          {/* Benefits Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 animate-fade-in">
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-primary">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Leaf className="h-7 w-7 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-foreground mb-2">Mapas de Vigor Inteligentes</h4>
+                  <p className="text-sm text-muted-foreground">Visualize a saúde das plantas de forma clara e atualizada.</p>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow-lg font-semibold">
-                Em produção ✓
-              </div>
-            </div>
+            </Card>
 
-            {/* Right Side - Description and Benefits */}
-            <div className="space-y-8 animate-fade-in">
-              <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Uma solução completa para análise agrícola inteligente
-                </h3>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  Nossa solução combina imagens de satélite, processamento avançado e modelos proprietários de IA para monitorar áreas agrícolas, identificar problemas e gerar relatórios completos que aceleram sua tomada de decisão. Tudo isso em uma interface simples, intuitiva e pronta para escalar de pequenas propriedades até grandes operações.
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-secondary">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center">
+                  <Search className="h-7 w-7 text-secondary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-foreground mb-2">Detecção Automática de Daninhas</h4>
+                  <p className="text-sm text-muted-foreground">IA identifica infestações e pontos de atenção rapidamente.</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-accent">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="h-14 w-14 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <BarChart3 className="h-7 w-7 text-accent" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-foreground mb-2">Relatórios Gerados por IA</h4>
+                  <p className="text-sm text-muted-foreground">Insights prontos para orientar ações imediatas no campo.</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-success">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="h-14 w-14 rounded-xl bg-success/10 flex items-center justify-center">
+                  <TrendingDown className="h-7 w-7 text-success" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-foreground mb-2">Redução de Custos Operacionais</h4>
+                  <p className="text-sm text-muted-foreground">Tome decisões mais eficientes e reduza desperdícios.</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-primary">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Activity className="h-7 w-7 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-foreground mb-2">Monitoramento Contínuo da Safra</h4>
+                  <p className="text-sm text-muted-foreground">Acompanhe tudo em tempo real ao longo do ciclo produtivo.</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-secondary">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center">
+                  <Satellite className="h-7 w-7 text-secondary" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg text-foreground mb-2">Dados de Satélite</h4>
+                  <p className="text-sm text-muted-foreground">Tecnologia de ponta para análise precisa e confiável.</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* CTA Card */}
+          <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/30 p-8 mb-12 animate-fade-in">
+            <div className="text-center space-y-6 max-w-2xl mx-auto">
+              <div className="space-y-3">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground">Ver Demonstração ao Vivo</h3>
+                <p className="text-base text-muted-foreground">
+                  Explore a plataforma em funcionamento. Acesse o ambiente cliente-empresa e veja o dashboard real com dados analisados pela IA.
                 </p>
               </div>
-
-              {/* Benefits Grid */}
-              <div className="grid gap-4">
-                <Card className="p-4 hover:shadow-md transition-shadow border-l-4 border-l-primary">
-                  <div className="flex items-start gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Leaf className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">Mapas de Vigor Inteligentes</h4>
-                      <p className="text-sm text-muted-foreground">Visualize a saúde das plantas de forma clara e atualizada.</p>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 hover:shadow-md transition-shadow border-l-4 border-l-secondary">
-                  <div className="flex items-start gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                      <Search className="h-5 w-5 text-secondary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">Detecção Automática de Daninhas</h4>
-                      <p className="text-sm text-muted-foreground">IA identifica infestações e pontos de atenção rapidamente.</p>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 hover:shadow-md transition-shadow border-l-4 border-l-accent">
-                  <div className="flex items-start gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                      <BarChart3 className="h-5 w-5 text-accent" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">Relatórios Gerados por IA</h4>
-                      <p className="text-sm text-muted-foreground">Insights prontos para orientar ações imediatas no campo.</p>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 hover:shadow-md transition-shadow border-l-4 border-l-success">
-                  <div className="flex items-start gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-success/10 flex items-center justify-center flex-shrink-0">
-                      <TrendingDown className="h-5 w-5 text-success" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">Redução de Custos Operacionais</h4>
-                      <p className="text-sm text-muted-foreground">Tome decisões mais eficientes e reduza desperdícios.</p>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 hover:shadow-md transition-shadow border-l-4 border-l-primary">
-                  <div className="flex items-start gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Activity className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">Monitoramento Contínuo da Safra</h4>
-                      <p className="text-sm text-muted-foreground">Acompanhe tudo em tempo real ao longo do ciclo produtivo.</p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-
-              {/* CTA Button */}
-              <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/30 p-6">
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <h4 className="text-xl font-bold text-foreground">Ver Demonstração ao Vivo</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Explore a plataforma em funcionamento. Acesse o ambiente cliente-empresa e veja o dashboard real com dados analisados pela IA.
-                    </p>
-                  </div>
-                  <Button 
-                    size="lg" 
-                    onClick={() => navigate('/dashboard')} 
-                    className="w-full text-base font-semibold group"
-                  >
-                    <Sparkles className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-                    Acessar Demonstração
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
-              </Card>
+              <Button 
+                size="lg" 
+                onClick={() => navigate('/dashboard')} 
+                className="text-base font-semibold group px-8 py-6 h-auto"
+              >
+                <Sparkles className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
+                Acessar Demonstração
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
-          </div>
+          </Card>
 
           {/* Results Section */}
           <div className="bg-muted/50 rounded-2xl p-8 border-2 animate-fade-in">
-            <h3 className="text-2xl font-bold mb-6 text-center">Resultados Comprovados</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h3 className="text-2xl font-bold mb-8 text-center">Resultados Comprovados</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center space-y-2">
-                <div className="text-3xl font-bold text-primary">50.000+</div>
+                <div className="text-4xl font-bold text-primary">50.000+</div>
                 <p className="text-sm text-muted-foreground">Hectares monitorados ativamente</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-3xl font-bold text-success">28%</div>
+                <div className="text-4xl font-bold text-success">28%</div>
                 <p className="text-sm text-muted-foreground">Redução média em custos com defensivos</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-3xl font-bold text-secondary">3x</div>
+                <div className="text-4xl font-bold text-secondary">3x</div>
                 <p className="text-sm text-muted-foreground">Decisões mais rápidas com análise de IA</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-3xl font-bold text-accent">100%</div>
+                <div className="text-4xl font-bold text-accent">100%</div>
                 <p className="text-sm text-muted-foreground">Escalável para qualquer tamanho de operação</p>
               </div>
             </div>
