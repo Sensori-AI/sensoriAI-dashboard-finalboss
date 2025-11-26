@@ -250,8 +250,8 @@ const Index = () => {
           </div>
 
           {/* Benefits Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 animate-fade-in">
-            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-primary">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-primary animate-fade-in" style={{ animationDelay: '0ms' }}>
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Leaf className="h-7 w-7 text-primary" />
@@ -263,7 +263,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-secondary">
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-secondary animate-fade-in" style={{ animationDelay: '100ms' }}>
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center">
                   <Search className="h-7 w-7 text-secondary" />
@@ -275,7 +275,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-accent">
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-accent animate-fade-in" style={{ animationDelay: '200ms' }}>
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="h-14 w-14 rounded-xl bg-accent/10 flex items-center justify-center">
                   <BarChart3 className="h-7 w-7 text-accent" />
@@ -287,7 +287,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-success">
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-success animate-fade-in" style={{ animationDelay: '300ms' }}>
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="h-14 w-14 rounded-xl bg-success/10 flex items-center justify-center">
                   <TrendingDown className="h-7 w-7 text-success" />
@@ -299,7 +299,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-primary">
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-primary animate-fade-in" style={{ animationDelay: '400ms' }}>
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Activity className="h-7 w-7 text-primary" />
@@ -311,7 +311,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-secondary">
+            <Card className="p-6 hover:shadow-lg transition-all hover:-translate-y-1 border-l-4 border-l-secondary animate-fade-in" style={{ animationDelay: '500ms' }}>
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center">
                   <Satellite className="h-7 w-7 text-secondary" />
@@ -367,6 +367,155 @@ const Index = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Before/After Comparison Section */}
+      <section className="container py-20 animate-fade-in">
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            O Impacto Real da Inteligência Artificial
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Veja como a plataforma SensoriAI transforma operações agrícolas em comparação com métodos tradicionais
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Sem IA */}
+          <Card className="p-8 space-y-6 border-2 border-destructive/20 bg-destructive/5">
+            <div className="text-center space-y-2">
+              <Badge variant="destructive" className="mb-2">Sem IA</Badge>
+              <h3 className="text-2xl font-bold text-foreground">Métodos Tradicionais</h3>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-destructive text-xs">✕</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Inspeção Manual Demorada</p>
+                  <p className="text-sm">Semanas para percorrer toda a área e coletar dados</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-destructive text-xs">✕</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Análise Subjetiva</p>
+                  <p className="text-sm">Dependência de interpretação humana, com margem para erros</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-destructive text-xs">✕</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Alto Desperdício</p>
+                  <p className="text-sm">Aplicação uniforme de insumos em toda área, sem precisão</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-destructive text-xs">✕</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Decisões Reativas</p>
+                  <p className="text-sm">Problemas identificados quando já causaram danos significativos</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3 text-muted-foreground">
+                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-destructive text-xs">✕</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Custos Elevados</p>
+                  <p className="text-sm">Mão de obra intensiva e uso excessivo de defensivos</p>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Com IA */}
+          <Card className="p-8 space-y-6 border-2 border-success/40 bg-success/5 relative overflow-hidden">
+            <div className="absolute top-4 right-4">
+              <Sparkles className="h-8 w-8 text-success" />
+            </div>
+            <div className="text-center space-y-2">
+              <Badge variant="default" className="mb-2 bg-success text-success-foreground">Com SensoriAI</Badge>
+              <h3 className="text-2xl font-bold text-foreground">Plataforma Inteligente</h3>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle2 className="h-3 w-3 text-success" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Análise em Tempo Real</p>
+                  <p className="text-sm text-muted-foreground">Monitoramento completo da área em minutos via satélite</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle2 className="h-3 w-3 text-success" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Precisão Automática</p>
+                  <p className="text-sm text-muted-foreground">IA identifica problemas com 95%+ de precisão e consistência</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle2 className="h-3 w-3 text-success" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Aplicação Direcionada</p>
+                  <p className="text-sm text-muted-foreground">Redução de até 28% em custos com defensivos e fertilizantes</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle2 className="h-3 w-3 text-success" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Ação Preventiva</p>
+                  <p className="text-sm text-muted-foreground">Identificação precoce permite intervenção antes de perdas</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle2 className="h-3 w-3 text-success" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">ROI Comprovado</p>
+                  <p className="text-sm text-muted-foreground">Retorno médio do investimento em menos de 1 safra</p>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* CTA após comparação */}
+        <div className="text-center mt-12">
+          <Button 
+            size="lg" 
+            onClick={() => navigate('/dashboard')} 
+            className="text-base font-semibold group px-8"
+          >
+            Ver a Diferença na Prática
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </section>
 
