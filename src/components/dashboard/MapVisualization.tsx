@@ -69,6 +69,15 @@ export const MapVisualization: React.FC = () => {
     });
   };
 
+  // Usa o base URL do bundler (Vite usa import.meta.env.BASE_URL).
+  // Isso garante que em builds com `base` diferente (subpath) os caminhos fiquem corretos.
+  const BASE = typeof import.meta !== "undefined" && (import.meta as any).env?.BASE_URL
+    ? (import.meta as any).env.BASE_URL
+    : "/";
+
+  // Função utilitária para formar o caminho final de uma imagem
+  const img = (filename: string) => `${BASE}images/${filename}`;
+
   return (
     <div className="space-y-6">
       {/* === MAPA PRINCIPAL (TOPO) === */}
@@ -135,7 +144,7 @@ export const MapVisualization: React.FC = () => {
                     <div className="space-y-2">
                       <Badge variant="outline" className="mb-2">Antes - Imagem bruta</Badge>
                       <div className="aspect-video rounded-lg overflow-hidden border border-border shadow-sm">
-                        <img src="/images/weed-before.png" alt="Antes - Lavoura" className="w-full h-full object-cover" />
+                        <img src={img("weed-before.png")} alt="Antes - Lavoura" className="w-full h-full object-cover" />
                       </div>
                       <p className="text-xs text-muted-foreground text-center mt-1">Imagem original da lavoura sem marcações</p>
                     </div>
@@ -143,7 +152,7 @@ export const MapVisualization: React.FC = () => {
                     <div className="space-y-2">
                       <Badge variant="default" className="mb-2 bg-destructive text-destructive-foreground">Depois - IA</Badge>
                       <div className="aspect-video rounded-lg overflow-hidden border-2 border-destructive shadow-sm">
-                        <img src="/images/weed-after.png" alt="Depois - Deteção IA" className="w-full h-full object-cover" />
+                        <img src={img("weed-after.png")} alt="Depois - Deteção IA" className="w-full h-full object-cover" />
                       </div>
                       <p className="text-xs text-muted-foreground text-center mt-1">IA realça focos de infestação e áreas de atenção</p>
                     </div>
@@ -176,7 +185,7 @@ export const MapVisualization: React.FC = () => {
                     <div className="space-y-2">
                       <Badge variant="outline" className="mb-2">Antes - Processo Manual</Badge>
                       <div className="aspect-video rounded-lg overflow-hidden border border-border shadow-sm">
-                        <img src="/images/planting-before.png" alt="Antes - Manual" className="w-full h-full object-cover" />
+                        <img src={img("planting-before.png")} alt="Antes - Manual" className="w-full h-full object-cover" />
                       </div>
                       <p className="text-xs text-muted-foreground text-center mt-1">Coleta/compilação manual de dados (3–5 dias)</p>
                     </div>
@@ -184,7 +193,7 @@ export const MapVisualization: React.FC = () => {
                     <div className="space-y-2">
                       <Badge variant="default" className="mb-2 bg-accent text-accent-foreground">Depois - Geração Automática</Badge>
                       <div className="aspect-video rounded-lg overflow-hidden border-2 border-accent shadow-sm">
-                        <img src="/images/planting-after.png" alt="Depois - IA" className="w-full h-full object-cover" />
+                        <img src={img("planting-after.png")} alt="Depois - IA" className="w-full h-full object-cover" />
                       </div>
                       <p className="text-xs text-muted-foreground text-center mt-1">Relatório gerado pela IA em minutos, com recomendações para correção</p>
                     </div>
@@ -217,7 +226,7 @@ export const MapVisualization: React.FC = () => {
                     <div className="space-y-2">
                       <Badge variant="outline" className="mb-2">Antes - Imagem RGB (satélite)</Badge>
                       <div className="aspect-video rounded-lg overflow-hidden border border-border shadow-sm">
-                        <img src="/images/ndvi-before.jpg" alt="Antes - RGB" className="w-full h-full object-cover" />
+                        <img src={img("ndvi-before.jpg")} alt="Antes - RGB" className="w-full h-full object-cover" />
                       </div>
                       <p className="text-xs text-muted-foreground text-center mt-1">Imagem RGB capturada por satélite</p>
                     </div>
@@ -225,7 +234,7 @@ export const MapVisualization: React.FC = () => {
                     <div className="space-y-2">
                       <Badge variant="default" className="mb-2 bg-success text-success-foreground">Depois - Mapa NDVI</Badge>
                       <div className="aspect-video rounded-lg overflow-hidden border-2 border-success shadow-sm">
-                        <img src="/images/ndvi-after.jpg" alt="Depois - NDVI" className="w-full h-full object-cover" />
+                        <img src={img("ndvi-after.jpg")} alt="Depois - NDVI" className="w-full h-full object-cover" />
                       </div>
                       <p className="text-xs text-muted-foreground text-center mt-1">Mapa NDVI processado pela IA — Verde = saudável, Amarelo = atenção, Vermelho = problema</p>
                     </div>
