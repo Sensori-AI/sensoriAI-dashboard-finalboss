@@ -15,24 +15,22 @@ import {
 } from "@/components/ui/sidebar";
 
 const items = [
-  { title: "Dashboard", url: "/", icon: Home },
+  { title: "Home", url: "/", icon: Home, end: true },
+  { title: "Dashboard", url: "/dashboard", icon: Activity },
   { title: "Mapas", url: "/maps", icon: Map },
-  { title: "Plantas Daninhas", url: "/weeds", icon: Sprout },
-  { title: "Vigor da Cultura", url: "/vigor", icon: Activity },
-  { title: "Relatórios", url: "/reports", icon: FileText },
   { title: "Configurações", url: "/settings", icon: Settings },
 ];
 
 export function AppSidebar() {
   return (
-    <Sidebar className="border-r border-sidebar-border">
+    <Sidebar className="border-r border-sidebar-border min-h-screen">
       <SidebarHeader className="border-b border-sidebar-border p-4">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
             <Sprout className="h-5 w-5 text-primary-foreground" />
           </div>
           <div>
-            <h2 className="font-bold text-sidebar-foreground text-lg">sensoriAI</h2>
+            <h2 className="font-bold text-sidebar-foreground text-lg">SensoriAI</h2>
             <p className="text-xs text-sidebar-foreground/60">Análise Agrícola</p>
           </div>
         </div>
@@ -46,13 +44,16 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink 
+                    <NavLink
                       to={item.url}
-                      end
+                      end={!!item.end}
                       className={({ isActive }) =>
-                        isActive
-                          ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-                          : "hover:bg-sidebar-accent/50"
+                        [
+                          "flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors",
+                          isActive
+                            ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                            : "text-sidebar-foreground hover:bg-sidebar-accent/10"
+                        ].join(" ")
                       }
                     >
                       <item.icon className="h-4 w-4" />

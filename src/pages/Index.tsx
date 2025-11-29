@@ -1,8 +1,6 @@
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { 
   Leaf, 
   Brain, 
@@ -24,7 +22,6 @@ import {
   TrendingUp,
   Search,
   Activity,
-  Play,
   Quote,
   ArrowLeftRight
 } from "lucide-react";
@@ -34,54 +31,6 @@ import { useState } from "react";
 
 const Index = () => {
   const navigate = useNavigate();
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
-  const videoTestimonials = [
-    {
-      id: "1",
-      name: "Rufer Filho",
-      farm: "Fazenda Pimentas",
-      location: "Bom Princípio do Oeste - Toledo",
-      quote: "Reduzimos 32% dos custos com defensivos no primeiro ano. A precisão da análise de IA é impressionante.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder - substituir por vídeo real
-      gradientFrom: "primary/20",
-      gradientTo: "primary/5",
-      iconColor: "primary"
-    },
-    {
-      id: "2",
-      name: "Julia Luz",
-      farm: "Itax",
-      location: "DISTRITO DE SÃO SALVADOR, PR",
-      quote: "Conseguimos identificar problemas 2 semanas antes do que identificávamos manualmente. Isso salvou nossa safra.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder - substituir por vídeo real
-      gradientFrom: "secondary/20",
-      gradientTo: "secondary/5",
-      iconColor: "secondary"
-    },
-    {
-      id: "3",
-      name: "Manoel Fabio Lins",
-      farm: "Simasat",
-      location: "Toledo - PR",
-      quote: "A plataforma escala perfeitamente. Gerenciamos 5 fazendas diferentes de um único dashboard com dados em tempo real.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder - substituir por vídeo real
-      gradientFrom: "accent/20",
-      gradientTo: "accent/5",
-      iconColor: "accent"
-    }
-  ];
-
-  const handleVideoClick = (videoUrl: string) => {
-    setSelectedVideo(videoUrl);
-    setIsVideoModalOpen(true);
-  };
-
-  const closeVideoModal = () => {
-    setIsVideoModalOpen(false);
-    setTimeout(() => setSelectedVideo(null), 300); // Delay para animação de fechamento
-  };
 
   const features = [
     {
@@ -107,7 +56,7 @@ const Index = () => {
   ];
 
   const plans = [
-    
+    // se tiver planos, coloque aqui
   ];
 
   const testimonials = [
@@ -125,7 +74,7 @@ const Index = () => {
       content: "Atendemos 15 propriedades e a SensoriAI se tornou nossa principal ferramenta de diagnóstico. Os relatórios de IA economizam horas de trabalho.",
       avatar: "JL"
     },
-{
+    {
       name: "Leonardo",
       role: "Empresário",
       company: "GreenDog",
@@ -142,8 +91,8 @@ const Index = () => {
   ];
 
   const stats = [
-    { value: "50+", label: "Projetos Entregues" },
-    { value: "20+", label: "Clientes Ativos" },
+    { value: "3", label: "Projetos Em Execução" },
+    { value: "5", label: "Clientes Ativos" },
     { value: "5", label: "Setores Atendidos" },
     { value: "98%", label: "Satisfação dos Clientes" }
   ];
@@ -250,7 +199,6 @@ const Index = () => {
       <section id="cases" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-           
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               Transforme sua operação agrícola com Inteligência Artificial
             </h2>
@@ -330,7 +278,7 @@ const Index = () => {
                   <Satellite className="h-7 w-7 text-secondary" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-foreground mb-2">Dados de Satélite</h4>
+                  <h4 className="font-bold text-lg text-foreground mb-2">Imageamento Avançado</h4>
                   <p className="text-sm text-muted-foreground">Tecnologia de ponta para análise precisa e confiável.</p>
                 </div>
               </div>
@@ -358,255 +306,14 @@ const Index = () => {
             </div>
           </Card>
 
-        {/* Results Section */}
-          <div className="bg-muted/50 rounded-2xl p-8 border-2 animate-fade-in">
-            <h3 className="text-2xl font-bold mb-8 text-center">Resultados Comprovados</h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center space-y-2">
-                <div className="text-4xl font-bold text-primary">50.000+</div>
-                <p className="text-sm text-muted-foreground">Hectares monitorados ativamente</p>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-4xl font-bold text-success">28%</div>
-                <p className="text-sm text-muted-foreground">Redução média em custos com defensivos</p>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-4xl font-bold text-secondary">3x</div>
-                <p className="text-sm text-muted-foreground">Decisões mais rápidas com análise de IA</p>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-4xl font-bold text-accent">100%</div>
-                <p className="text-sm text-muted-foreground">Escalável para qualquer tamanho de operação</p>
-              </div>
-            </div>
-          </div>
+          {/* Notice: "Resultados Comprovados" section REMOVED here */}
+
         </div>
       </section>
-
-      {/* Before/After Comparison Section */}
-      <section className="container py-20 animate-fade-in">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            O Impacto Real da Inteligência Artificial
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Veja como a plataforma SensoriAI transforma operações agrícolas em comparação com métodos tradicionais
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Sem IA */}
-          <Card className="p-8 space-y-6 border-2 border-destructive/20 bg-destructive/5">
-            <div className="text-center space-y-2">
-              <Badge variant="destructive" className="mb-2">Sem IA</Badge>
-              <h3 className="text-2xl font-bold text-foreground">Métodos Tradicionais</h3>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-start gap-3 text-muted-foreground">
-                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-destructive text-xs">✕</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Inspeção Manual Demorada</p>
-                  <p className="text-sm">Semanas para percorrer toda a área e coletar dados</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3 text-muted-foreground">
-                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-destructive text-xs">✕</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Análise Subjetiva</p>
-                  <p className="text-sm">Dependência de interpretação humana, com margem para erros</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3 text-muted-foreground">
-                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-destructive text-xs">✕</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Alto Desperdício</p>
-                  <p className="text-sm">Aplicação uniforme de insumos em toda área, sem precisão</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3 text-muted-foreground">
-                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-destructive text-xs">✕</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Decisões Reativas</p>
-                  <p className="text-sm">Problemas identificados quando já causaram danos significativos</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3 text-muted-foreground">
-                <div className="mt-1 h-5 w-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-destructive text-xs">✕</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Custos Elevados</p>
-                  <p className="text-sm">Mão de obra intensiva e uso excessivo de defensivos</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          {/* Com IA */}
-          <Card className="p-8 space-y-6 border-2 border-success/40 bg-success/5 relative overflow-hidden">
-            <div className="absolute top-4 right-4">
-              <Sparkles className="h-8 w-8 text-success" />
-            </div>
-            <div className="text-center space-y-2">
-              <Badge variant="default" className="mb-2 bg-success text-success-foreground">Com SensoriAI</Badge>
-              <h3 className="text-2xl font-bold text-foreground">Plataforma Inteligente</h3>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="h-3 w-3 text-success" />
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Análise em Tempo Real</p>
-                  <p className="text-sm text-muted-foreground">Monitoramento completo da área em minutos via satélite</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="h-3 w-3 text-success" />
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Precisão Automática</p>
-                  <p className="text-sm text-muted-foreground">IA identifica problemas com 95%+ de precisão e consistência</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="h-3 w-3 text-success" />
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Aplicação Direcionada</p>
-                  <p className="text-sm text-muted-foreground">Redução de até 28% em custos com defensivos e fertilizantes</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="h-3 w-3 text-success" />
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Ação Preventiva</p>
-                  <p className="text-sm text-muted-foreground">Identificação precoce permite intervenção antes de perdas</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <div className="mt-1 h-5 w-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="h-3 w-3 text-success" />
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">ROI Comprovado</p>
-                  <p className="text-sm text-muted-foreground">Retorno médio do investimento em menos de 1 safra</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
-
-        {/* CTA após comparação */}
-        <div className="text-center mt-12">
-          <Button 
-            size="lg" 
-            onClick={() => navigate('/dashboard')} 
-            className="text-base font-semibold group px-8"
-          >
-            Ver a Diferença na Prática
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
-      </section>
-
-      {/* Video Testimonials Section */}
-      <section className="container py-20 animate-fade-in">
-        <div className="text-center space-y-4 mb-12">
-          
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Veja o que nossos clientes têm a dizer
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Resultados reais de quem já está utilizando a plataforma SensoriAI em suas operações
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {videoTestimonials.map((testimonial, index) => (
-            <Card 
-              key={testimonial.id}
-              className="overflow-hidden group cursor-pointer hover:shadow-xl transition-all animate-fade-in" 
-              style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => handleVideoClick(testimonial.videoUrl)}
-            >
-              <div className={`relative aspect-video bg-gradient-to-br from-${testimonial.gradientFrom} to-${testimonial.gradientTo} flex items-center justify-center`}>
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors" />
-                <div className="relative z-10">
-                  <Play className={`h-16 w-16 text-${testimonial.iconColor} group-hover:scale-110 transition-transform drop-shadow-lg`} />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                  <p className="text-white text-sm font-semibold">{testimonial.name} - {testimonial.farm}</p>
-                </div>
-              </div>
-              <div className="p-6 space-y-3">
-                <div className="flex gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  "{testimonial.quote}"
-                </p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <MapPin className="h-3 w-3" />
-                  <span>{testimonial.location}</span>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Video Modal */}
-      <Dialog open={isVideoModalOpen} onOpenChange={closeVideoModal}>
-        <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-background border-2">
-          <DialogHeader className="p-6 pb-0">
-            <DialogTitle className="text-2xl font-bold">Depoimento do Cliente</DialogTitle>
-          </DialogHeader>
-          <div className="aspect-video w-full bg-black">
-            {selectedVideo && (
-              <iframe
-                width="100%"
-                height="100%"
-                src={selectedVideo}
-                title="Depoimento em vídeo"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
 
       {/* Before/After Gallery Section */}
       <section className="container py-20 animate-fade-in bg-muted/20">
         <div className="text-center space-y-4 mb-12">
-        
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Veja a tecnologia em ação
           </h2>
@@ -616,54 +323,44 @@ const Index = () => {
         </div>
 
         <div className="space-y-8 max-w-6xl mx-auto">
-                    
+          {/* Comparison content (mantive as imagens/descrições originais) */}
+          <Card className="overflow-hidden animate-fade-in" style={{ animationDelay: '200ms' }}>
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <BarChart3 className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">Identificação de Falhas de Plantio</h3>
+                  <p className="text-sm text-muted-foreground">Geração de insights - Fazenda Bom Princípio do Oeste - Toledo PR</p>
+                </div>
+              </div>
 
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Badge variant="outline" className="mb-2">Antes - Processo Manual</Badge>
+                  <div className="aspect-video rounded-lg overflow-hidden border border-border shadow-sm">
+                    <img src="/images/planting-before.png" alt="Antes - Manual" className="w-full h-full object-cover" />
+                  </div>
+                  <p className="text-xs text-muted-foreground text-center mt-1">Coleta/compilação manual de dados (3–5 dias)</p>
+                </div>
 
+                <div className="space-y-2">
+                  <Badge variant="default" className="mb-2 bg-accent text-accent-foreground">Depois - Geração Automática</Badge>
+                  <div className="aspect-video rounded-lg overflow-hidden border-2 border-accent shadow-sm">
+                    <img src="/images/planting-after.png" alt="Depois - IA" className="w-full h-full object-cover" />
+                  </div>
+                  <p className="text-xs text-muted-foreground text-center mt-1">Relatório gerado pela IA em minutos, com recomendações para correção</p>
+                </div>
+              </div>
 
-
-
-                    {/* Comparison 3 - Planting failure (antes/depois lado a lado) */}
-<Card className="overflow-hidden animate-fade-in" style={{ animationDelay: '200ms' }}>
-  <div className="p-6">
-    <div className="flex items-center gap-3 mb-4">
-      <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center">
-        <BarChart3 className="h-5 w-5 text-accent" />
-      </div>
-      <div>
-        <h3 className="text-xl font-bold text-foreground">Identificação de Falhas de Plantio</h3>
-        <p className="text-sm text-muted-foreground">Geração de insights - Fazenda Bom Princípio do Oeste - Toledo PR</p>
-      </div>
-    </div>
-
-    <div className="grid md:grid-cols-2 gap-4">
-      {/* Antes */}
-      <div className="space-y-2">
-        <Badge variant="outline" className="mb-2">Antes - Processo Manual</Badge>
-        <div className="aspect-video rounded-lg overflow-hidden border border-border shadow-sm">
-          <img src="/images/planting-before.png" alt="Antes - Manual" className="w-full h-full object-cover" />
-        </div>
-        <p className="text-xs text-muted-foreground text-center mt-1">Coleta/compilação manual de dados (3–5 dias)</p>
-      </div>
-
-      {/* Depois */}
-      <div className="space-y-2">
-        <Badge variant="default" className="mb-2 bg-accent text-accent-foreground">Depois - Geração Automática</Badge>
-        <div className="aspect-video rounded-lg overflow-hidden border-2 border-accent shadow-sm">
-          <img src="/images/planting-after.png" alt="Depois - IA" className="w-full h-full object-cover" />
-        </div>
-        <p className="text-xs text-muted-foreground text-center mt-1">Relatório gerado pela IA em minutos, com recomendações para correção</p>
-      </div>
-    </div>
-
-    <div className="mt-4 p-4 bg-accent/10 rounded-lg border border-accent/20">
-      <p className="text-sm text-foreground">
-        <strong>Resultado:</strong> Relatórios automatizados liberaram ~20h/mês da equipe técnica e permitiram correções rápidas, melhorando uniformidade do plantio.
-      </p>
-    </div>
-  </div>
-</Card>
-
-
+              <div className="mt-4 p-4 bg-accent/10 rounded-lg border border-accent/20">
+                <p className="text-sm text-foreground">
+                  <strong>Resultado:</strong> A área apresenta 2,19% de falhas, um índice baixo para o talhão. As falhas estão concentradas nos extremos, sugerindo problemas pontuais de estabelecimento ou variações de ambiente nas bordas da lavoura.
+                </p>
+              </div>
+            </div>
+          </Card>
         </div>
 
         <div className="text-center mt-12">
@@ -771,8 +468,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* Testimonials Section */}
       <section className="container py-20 animate-fade-in">

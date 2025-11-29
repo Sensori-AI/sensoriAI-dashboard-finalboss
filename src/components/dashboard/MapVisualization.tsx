@@ -151,7 +151,7 @@ export const MapVisualization: React.FC = () => {
 
                   <div className="mt-4 p-4 bg-destructive/10 rounded-lg border border-destructive/20">
                     <p className="text-sm text-foreground">
-                      <strong>Resultado:</strong> 7 focos de daninhas identificados precocemente. Intervenção localizada evitou propagação para mais de <strong>85 hectares</strong>.
+                      <strong>Resultado:</strong> A área apresenta 5,671% de infestação, um nível relativamente baixo no contexto do talhão. A distribuição é esparsa, sem formação de grandes focos ou regiões de alta pressão de infestação.
                     </p>
                   </div>
                 </div>
@@ -192,7 +192,7 @@ export const MapVisualization: React.FC = () => {
 
                   <div className="mt-4 p-4 bg-accent/10 rounded-lg border border-accent/20">
                     <p className="text-sm text-foreground">
-                      <strong>Resultado:</strong> Relatórios automatizados liberaram ~20h/mês da equipe técnica e permitiram correções rápidas, melhorando uniformidade do plantio.
+                      <strong>Resultado:</strong> A área apresenta 2,19% de falhas, um índice baixo para o talhão. As falhas estão concentradas nos extremos, sugerindo problemas pontuais de estabelecimento ou variações de ambiente nas bordas da lavoura.
                     </p>
                   </div>
                 </div>
@@ -233,7 +233,7 @@ export const MapVisualization: React.FC = () => {
 
                   <div className="mt-4 p-4 bg-success/10 rounded-lg border border-success/20">
                     <p className="text-sm text-foreground">
-                      <strong>Resultado:</strong> Identificados 3 setores com baixo vigor (12% da área total). Aplicação direcionada economizou R$ 18.400 em fertilizantes.
+                      <strong>Resultado:</strong> A distribuição de vigor é claramente heterogênea: cerca de 40,67% da área apresenta baixo vigor, enquanto 47,04% mostra alto desempenho vegetativo, com uma zona intermediária de 12,29%. 
                     </p>
                   </div>
                 </div>
